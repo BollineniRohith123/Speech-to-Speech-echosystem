@@ -9,17 +9,20 @@ export default defineConfig(({ mode }) => {
       changeOrigin: true,
     },
   } : {};
+  const serverConfig: any = {
+    host: "0.0.0.0",
+    proxy: {
+      ...proxyConf,
+    }
+  };
+  if (mode === 'production') {
+    serverConfig.https = {
+      cert: "./cert.pem",
+      key: "./key.pem",
+    };
+  }
   return {
-    server: {
-      host: "0.0.0.0",
-      https: {
-        cert: "./cert.pem",
-        key: "./key.pem",
-      },
-      proxy: {
-        ...proxyConf,
-      }
-    },
+    server: serverConfig,
     plugins: [
       topLevelAwait({
         // The export name of top-level await promise for each chunk module
