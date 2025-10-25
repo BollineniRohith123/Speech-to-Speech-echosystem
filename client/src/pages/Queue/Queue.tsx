@@ -107,9 +107,9 @@ export const Queue: FC = () => {
   return (
     <div className="text-white text-center h-screen w-screen p-4 flex flex-col items-center ">
       <div>
-        <h1 className="text-4xl" style={{ letterSpacing: isImageMode ? "2px" : "5px" }}>M{isImageMode ? "👁️" : "o"}shi</h1>
+        <h1 className="text-4xl" style={{ letterSpacing: isImageMode ? "2px" : "5px" }}>Vemi {isImageMode ? "👁️" : "AI"}</h1>
         <SwitchButton onClick={() => { setisImageMode(!isImageMode); modelParams.setImageUrl(undefined) }}>
-          {isImageMode ? "Back to Moshi" : "Go to Moshi Vision"}
+          {isImageMode ? "Back to Vemi AI" : "Go to Vemi AI Vision"}
         </SwitchButton>
         {/*
           To add more space to the top add padding to the top of the following div
@@ -120,15 +120,15 @@ export const Queue: FC = () => {
         */}
         <div className="pt-8 text-sm flex justify-center items-center flex-col ">
           <div className="presentation text-left">
-            <p><span className='cute-words'>Moshi</span> is an experimental conversational AI. </p>
+            <p><span className='cute-words'>Vemi AI</span> is an experimental conversational AI. </p>
             <p>Take everything it says with a grain of <span className='cute-words'>salt</span>.</p>
             <p>Conversations are limited to <span className='cute-words'>5 min</span>.</p>
-            <p>Moshi <span className='cute-words'>thinks</span> and <span className='cute-words'>speaks</span> at the same time.</p>
-            <p>Moshi can <span className='cute-words'>listen</span> and <span className='cute-words'>talk</span> at all time: <br />maximum flow between you and <span className='cute-words'>Moshi</span>.</p>
+            <p>Vemi AI <span className='cute-words'>thinks</span> and <span className='cute-words'>speaks</span> at the same time.</p>
+            <p>Vemi AI can <span className='cute-words'>listen</span> and <span className='cute-words'>talk</span> at all time: <br />maximum flow between you and <span className='cute-words'>Vemi AI</span>.</p>
             <p>Ask it to do some <span className='cute-words'>Pirate</span> role play, how to make <span className='cute-words'>Lasagna</span>,
               or what <span className='cute-words'>movie</span> it watched last.</p>
             <p>We strive to support all browsers, Chrome works best.</p>
-            <p>Baked with &lt;3 @<a href="https://kyutai.org/" className='cute-words underline'>Kyutai</a>.</p>
+            <p>Powered by advanced speech-to-speech technology.</p>
           </div>
         </div>
       </div>
@@ -145,7 +145,7 @@ export const Queue: FC = () => {
           }
           <Button className="absolute top-4 right-4" onClick={() => modalRef.current?.showModal()}>Settings</Button>
           <dialog ref={modalRef} className="modal">
-            <div className="modal-box border-2 border-white rounded-none flex justify-center bg-black">
+            <div className="modal-box border-2 border-purple-500 rounded-none flex justify-center bg-gradient-to-br from-indigo-950 via-purple-950 to-pink-950">
               <ModelParams {...modelParams} isConnected={shouldConnect} isImageMode={isImageMode} modal={modalRef} />
             </div>
             <form method="dialog" className="modal-backdrop">

@@ -6,12 +6,12 @@ type TextDisplayProps = {
   displayColor: boolean | undefined;
 };
 
-// Palette 2: Purple to Green Moshi
-// sns.diverging_palette(288, 145, s=90, l=72, n=11)
+// Palette: Purple to Pink Vemi AI
+// Gradient from deep purple through violet to pink
 const textDisplayColors = [
-  "#d19bf7", "#d7acf6", "#debdf5", "#e4cef4",
-  "#ebe0f3", "#eef2f0", "#c8ead9", "#a4e2c4",
-  "#80d9af", "#5bd09a", "#38c886"]
+  "#6366f1", "#7c3aed", "#8b5cf6", "#a78bfa",
+  "#c084fc", "#d8b4fe", "#e9d5ff", "#f5d0fe",
+  "#f9a8d4", "#f472b6", "#ec4899"]
 
 function clamp_color(v: number) {
   return v <= 0

@@ -7,7 +7,7 @@ export const Input = ({className, error, ...props}:InputProps) => {
     <div className="pb-8 relative">
       <input
         {...props}
-        className={`border-2 disabled:bg-gray-100 border-white bg-black p-2 outline-none text-white hover:bg-gray-800 focus:bg-gray-800 p-2 ${className ?? ""}`}
+        className={`border-2 disabled:bg-gray-100 border-purple-400 bg-purple-950 p-2 outline-none text-white hover:bg-purple-800 focus:bg-purple-800 p-2 ${className ?? ""}`}
       />
       {error && <p className=" absolute text-red-800">{error}</p>}
     </div>

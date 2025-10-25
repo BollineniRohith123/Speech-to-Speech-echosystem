@@ -308,7 +308,7 @@ export const Conversation: FC<ConversationProps> = ({
               }
               <div className={`h-4 w-4 rounded-full ${isConnected ? 'bg-green-700' : 'bg-red-700'}`} />
             </div>
-            <div className="relative player h-full max-h-full w-full justify-between gap-3 border-2 border-white md:p-12"
+            <div className="relative player h-full max-h-full w-full justify-between gap-3 border-2 border-purple-400 md:p-12"
               style={{
                 backgroundImage: `url(${params.imageUrl})`,
                 backgroundSize: '70%',
@@ -329,12 +329,12 @@ export const Conversation: FC<ConversationProps> = ({
                   margin: -10,
                   padding: 0,
                 }}>
-                {audioURL && <div><a href={audioURL} download={`moshi audio.${getExtension("audio")}`} className="pt-2 text-center block">Download audio</a></div>}
-                {videoURL && <div><a href={videoURL} download={`moshi video.${getExtension("video")}`} className="pt-2 text-center">Download video</a></div>}
+                {audioURL && <div><a href={audioURL} download={`vemi-ai-audio.${getExtension("audio")}`} className="pt-2 text-center block">Download audio</a></div>}
+                {videoURL && <div><a href={videoURL} download={`vemi-ai-video.${getExtension("video")}`} className="pt-2 text-center">Download video</a></div>}
                 {videoURL && getExtension("video") === "webm" && <div><a href="https://restream.io/tools/webm-to-mp4-converter" target="_blank" rel="noreferrer" className="explain-links pt-2 text-center italic block">How to convert to mp4</a></div>}
               </div>
             </div>
-            <div className="scrollbar player-text border-2 border-white " ref={textContainerRef}>
+            <div className="scrollbar player-text border-2 border-purple-400 " ref={textContainerRef}>
               <TextDisplay containerRef={textContainerRef} displayColor={params.displayColor} />
             </div>
             <div className="player-stats hidden md:block">

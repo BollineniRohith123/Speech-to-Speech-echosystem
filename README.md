@@ -1,18 +1,14 @@
-# Moshi: a speech-text foundation model for real time dialogue
+# Vemi AI: Advanced Speech-to-Speech Conversational AI
 
 ![precommit badge](https://github.com/kyutai-labs/moshi/workflows/precommit/badge.svg)
 ![rust ci badge](https://github.com/kyutai-labs/moshi/workflows/Rust%20CI/badge.svg)
 
-[[Read the paper]][moshi] [[Demo]](https://moshi.chat) [[Hugging Face]](https://huggingface.co/collections/kyutai/moshi-v01-release-66eaeaf3302bef6bd9ad7acd)
-
-[Moshi][moshi] is a speech-text foundation model and **full-duplex** spoken dialogue framework.
-It uses [Mimi][moshi], a state-of-the-art streaming neural audio codec.
-[Talk to Moshi](https://moshi.chat) now in our live demo.
+**Vemi AI** is a speech-text foundation model and **full-duplex** spoken dialogue framework, powered by advanced real-time AI technology.
+It uses Mimi, a state-of-the-art streaming neural audio codec, to enable natural, bidirectional conversations.
 
 ## Organisation of the repository
 
-There are three separate versions of the Moshi inference stack in this repo.
-
+There are three separate versions of the inference stack in this repo:
 
 - **[PyTorch](#pytorch-implementation): for research and tinkering.** The code is in the [`moshi/`](moshi/) directory.
 - **[MLX](#mlx-implementation-for-local-inference-on-macos): for on-device inference on iPhone and Mac.** The code is in the [`moshi_mlx/`](moshi_mlx/) directory.
@@ -20,28 +16,26 @@ There are three separate versions of the Moshi inference stack in this repo.
     This contains in particular a Mimi implementation in Rust, with Python bindings available
     as `rustymimi`.
 
-Finally, the code for the web UI client used in the [Moshi demo](https://moshi.chat) is provided in the [`client/`](client/) directory.
+Finally, the code for the web UI client is provided in the [`client/`](client/) directory.
 
-If you want to fine tune Moshi, head out to [kyutai-labs/moshi-finetune](https://github.com/kyutai-labs/moshi-finetune).
+### Related Technologies
 
-### Other Kyutai models
-
-The Moshi codebase is also used to run related models from Kyutai that use a multi-stream architecture similar to Moshi:
+The codebase is also compatible with related models that use a multi-stream architecture:
 - **Hibiki: simultaneous speech translation.** Check out the [Hibiki repo](https://github.com/kyutai-labs/hibiki) for more info.
-- **Kyutai Text-To-Speech and Speech-To-Text.** Check out the [Delayed Streams Modeling repo](https://github.com/kyutai-labs/delayed-streams-modeling) for more info.
+- **Text-To-Speech and Speech-To-Text.** Check out the [Delayed Streams Modeling repo](https://github.com/kyutai-labs/delayed-streams-modeling) for more info.
 
 ## Model architecture
 
-Moshi models **two streams of audio**: one corresponds to Moshi speaking, and the other one to the user speaking.
-Along with these two audio streams, Moshi predicts text tokens corresponding to its own speech, its **inner monologue**,
+Vemi AI models **two streams of audio**: one corresponds to the AI speaking, and the other one to the user speaking.
+Along with these two audio streams, the model predicts text tokens corresponding to its own speech, its **inner monologue**,
 which greatly improves the quality of its generation.
 A small Depth Transformer models inter-codebook dependencies for a given time step,
-while a large, 7B-parameter Temporal Transformer models the temporal dependencies. Moshi achieves a theoretical latency
+while a large, 7B-parameter Temporal Transformer models the temporal dependencies. The system achieves a theoretical latency
 of 160ms (80ms for the frame size of Mimi + 80ms of acoustic delay), with a practical overall latency as low as 200ms on an L4 GPU.
 
 <p align="center">
-<img src="./moshi.png" alt="Schema representing the structure of Moshi. Moshi models two streams of audio:
-    one corresponds to Moshi, and the other one to the user. At inference, the audio stream of the user is taken from the audio input, and the audio stream for Moshi is sampled from the model's output. Along that, Moshi predicts text tokens corresponding to its own speech for improved accuracy. A small Depth Transformer models inter codebook dependencies for a given step."
+<img src="./moshi.png" alt="Schema representing the structure of the model. The system models two streams of audio:
+    one corresponds to the AI, and the other one to the user. At inference, the audio stream of the user is taken from the audio input, and the audio stream for the AI is sampled from the model's output. Along that, the model predicts text tokens corresponding to its own speech for improved accuracy. A small Depth Transformer models inter codebook dependencies for a given step."
 width="650px"></p>
 
 ### Mimi
@@ -68,10 +62,10 @@ width="800px"></p>
 
 ## Models
 
-We release three models:
-- Moshi fine-tuned on a male synthetic voice (Moshiko),
-- Moshi fine-tuned on a female synthetic voice (Moshika),
-- Mimi, our speech codec.
+Vemi AI is built on foundation models with multiple voice options:
+- Male synthetic voice (Moshiko),
+- Female synthetic voice (Moshika),
+- Mimi speech codec.
 
 Depending on the backend, the file format and quantization available will vary. Here is the list
 of the HuggingFace repo with each model. Mimi is bundled in each of those, and always use the same checkpoint format.
@@ -233,7 +227,7 @@ python -m moshi.client
 You can launch a Gradio demo locally with the following command:
 
 ```bash
-python -m moshi.client_gradio --url <moshi-server-url>
+python -m moshi.client_gradio --url <server-url>
 ```
 
 Prior to running the Gradio demo, please install `gradio-webrtc>=0.0.18`.
@@ -248,7 +242,7 @@ docker compose up
 
 ## Development
 
-If you wish to install from a clone of this repository, maybe to further develop Moshi, you can do the following:
+If you wish to install from a clone of this repository for further development, you can do the following:
 ```bash
 # From the root of the clone of the repo
 pip install -e 'moshi[dev]'
@@ -278,7 +272,7 @@ The weights for the models are released under the CC-BY 4.0 license.
 
 ## Citation
 
-If you use either Mimi or Moshi, please cite the following paper,
+This project is built upon the Moshi foundation model. If you use this technology, please cite the original paper:
 
 ```
 @techreport{kyutai2024moshi,
@@ -292,5 +286,9 @@ If you use either Mimi or Moshi, please cite the following paper,
       url={https://arxiv.org/abs/2410.00037},
 }
 ```
+
+## Acknowledgments
+
+Vemi AI is powered by the Moshi speech-text foundation model developed by Kyutai Labs. We acknowledge their groundbreaking work in real-time conversational AI.
 
 [moshi]: https://arxiv.org/abs/2410.00037

@@ -26,8 +26,8 @@
   }
 
   .scrollbar::-webkit-scrollbar-thumb {
-    background: white;
-    border: 3px solid #f6f7ed;
+    background: #a78bfa;
+    border: 3px solid #6366f1;
   }
 }
 
@@ -71,16 +71,16 @@
 }
 
 .cute-words {
-  color: #54e8b3;
+  color: #a78bfa;
 }
 
 
 .download-links {
-  color: #54e8b3;
+  color: #c084fc;
 }
 
 .explain-links {
-  color: #BCFCE5;
+  color: #e9d5ff;
 }
 
 
